@@ -1,0 +1,14 @@
+[alias]
+  s = status
+  a = add
+  co = checkout
+  b = branch
+  l = log
+  d = diff
+  ci = commit
+  amend = commit --amend
+  ps = push
+  pl = pull
+  re = rebase -i
+  continue = rebase --continue
+  abort = rebase --abort
