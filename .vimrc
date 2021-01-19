@@ -1,7 +1,8 @@
 " Plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'dense-analysis/ale'
+Plug 'neoclide/coc.nvim'
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'tomtom/tcomment_vim'
@@ -10,7 +11,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'rust-lang/rust.vim'
-Plug 'cespare/vim-toml'
 Plug 'ron-rs/ron.vim'
 
 Plug 'patstockwell/vim-monokai-tasty'
@@ -29,6 +29,7 @@ vmap > >gv
 " Indentation
 set tabstop=2 expandtab shiftwidth=2 smarttab
 autocmd Filetype python setlocal tabstop=4 expandtab shiftwidth=4 smarttab
+autocmd Filetype cs setlocal tabstop=4 expandtab shiftwidth=4 smarttab
 
 " Color Scheme
 colorscheme vim-monokai-tasty
@@ -36,13 +37,22 @@ colorscheme vim-monokai-tasty
 " Airline config
 let g:airline_theme='monokai_tasty'
 
+" Coc config
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-css', 'coc-html', 'coc-prettier', 'coc-python', 'coc-rust-analyzer', 'coc-sql', 'coc-svg', 'coc-tsserver', 'coc-toml', 'coc-todolist']
+let g:coc_disable_startup_warning = 1
+
+" Yats
+let re=0
+
+" Gitgutter config
+nmap ghs <Plug>(GitGutterStageHunk)
+nmap ghu <Plug>(GitGutterUndoHunk)
+nmap ghp <Plug>(GitGutterPreviewHunk)
+
 " NERDTree config
 let NERDTreeShowHidden=1
 let g:NERDTreeChDirMode=2
+autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-n> :NERDTreeToggle<CR>
-
-" ALE config
-let g:ale_completion_enabled=1
-let g:ale_linters={'rust': ['analyzer']}
-let g:ale_fixers={'rust': ['rustfmt']}
