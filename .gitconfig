@@ -12,3 +12,10 @@
   re = rebase -i
   continue = rebase --continue
   abort = rebase --abort
+[user]
+	name = Francisco Aguirre
+	email = franciscoaguirreperez@gmail.com
+[core]
+	editor = vim
+[init]
+	defaultBranch = main
