@@ -19,12 +19,17 @@ call plug#end()
 
 " Basic configuration
 set number
+set relativenumber
 let mapleader=","
 set timeout timeoutlen=1500
 syntax on
 set updatetime=100
 vmap < <gv
 vmap > >gv
+set ignorecase
+set smartcase
+set incsearch
+nmap Q <Nop>
 
 " Indentation
 set tabstop=2 expandtab shiftwidth=2 smarttab
