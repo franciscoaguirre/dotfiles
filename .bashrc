@@ -125,3 +125,4 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config config --local status.showUntrackedFiles no
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 
