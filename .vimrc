@@ -10,6 +10,8 @@ Plug 'kien/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 
+Plug 'slim-template/vim-slim'
+
 Plug 'rust-lang/rust.vim'
 Plug 'ron-rs/ron.vim'
 
@@ -30,6 +32,7 @@ set ignorecase
 set smartcase
 set incsearch
 nmap Q <Nop>
+set noerrorbells visualbell t_vb=
 
 " Indentation
 set tabstop=2 expandtab shiftwidth=2 smarttab
