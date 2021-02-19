@@ -126,3 +126,9 @@ config config --local status.showUntrackedFiles no
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+export PATH="$PATH:/usr/local/ssl/bin"
