@@ -132,3 +132,5 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 export PATH="$PATH:/usr/local/ssl/bin"
+export DENO_INSTALL="/home/franciscoaguirre/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
