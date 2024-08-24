@@ -8,6 +8,10 @@
     enable = true;
     settings = {
       theme = "bogster";
+      editor.line-number = "relative";
+      keys.normal = {
+        esc = ":w";
+      };
     };
   };
 
