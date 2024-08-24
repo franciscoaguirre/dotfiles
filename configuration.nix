@@ -102,6 +102,8 @@
   environment.systemPackages = with pkgs; [
     helix
     git
+    alacritty
+    zellij
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
