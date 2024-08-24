@@ -1,6 +1,21 @@
 { config, pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    # Notes
+    obsidian
+
+    # Messaging
+    discord
+
+    # Creative
+    inkscape
+    krita
+
+    # Misc
+    btop
+  ];
+
   programs.helix = {
     enable = true;
     settings = {
