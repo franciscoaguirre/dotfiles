@@ -1,9 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "francisco";
-  home.homeDirectory = "/home/francisco";
-
   programs.helix = {
     enable = true;
     settings = {
@@ -39,7 +36,4 @@
       abort = "rebase --abort";
     };
   };
-
-  home.stateVersion = "24.05";
-  programs.home-manager.enable = true;
 }
