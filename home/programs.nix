@@ -19,6 +19,8 @@
     # Misc
     btop
     neofetch
+    ripgrep
+    fd
   ];
 
   programs.starship = {
