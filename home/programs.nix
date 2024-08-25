@@ -14,6 +14,7 @@
 
     # Misc
     btop
+    neofetch
   ];
 
   programs.helix = {
