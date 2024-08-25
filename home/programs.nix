@@ -23,6 +23,15 @@
     enableZshIntegration = true;
   };
 
+  programs.zellij = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    settings = {
+      default_layout = "compact";
+    };
+  };
+
   programs.helix = {
     enable = true;
     settings = {
