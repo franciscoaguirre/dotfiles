@@ -17,6 +17,12 @@
     neofetch
   ];
 
+  programs.starship = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+  };
+
   programs.helix = {
     enable = true;
     settings = {
