@@ -11,6 +11,10 @@
     # Creative
     inkscape
     krita
+    blender
+
+    # Games
+    steam
 
     # Misc
     btop
