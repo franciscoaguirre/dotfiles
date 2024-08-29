@@ -18,6 +18,7 @@
 
     # Misc
     btop
+    bat
     neofetch
     ripgrep
     fd
