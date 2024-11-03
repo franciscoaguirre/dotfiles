@@ -22,6 +22,7 @@
     neofetch
     ripgrep
     fd
+    deluge
   ];
 
   programs.starship = {
