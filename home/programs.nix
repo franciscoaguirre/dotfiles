@@ -25,6 +25,24 @@
     deluge
   ];
 
+  programs.bash = {
+    enable = true;
+    initExtra = ''
+      # Check if this is an interactive shell, then launch fish
+      if [ -t 1 ]; then
+        exec fish
+      fi
+    '';
+  };
+
+  # Install fish.
+  programs.fish = {
+    enable = true;
+    shellAliases = {
+      g = "git";
+    };
+  };
+
   programs.starship = {
     enable = true;
     enableBashIntegration = true;
