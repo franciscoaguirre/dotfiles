@@ -41,6 +41,9 @@
     shellAliases = {
       g = "git";
     };
+    interactiveShellInit = ''
+      set fish_greeting # Disable greeting
+    '';
   };
 
   programs.starship = {
