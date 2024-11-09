@@ -3,7 +3,6 @@
 {
   imports = [
     ../../home/programs.nix
-    ../../home/aliases.nix
   ];
 
   home.username = "francisco";

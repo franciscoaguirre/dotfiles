@@ -28,13 +28,13 @@
   programs.starship = {
     enable = true;
     enableBashIntegration = true;
-    enableZshIntegration = true;
+    enableFishIntegration = true;
   };
 
   programs.zellij = {
     enable = true;
     enableBashIntegration = true;
-    enableZshIntegration = true;
+    enableFishIntegration = true;
     settings = {
       default_layout = "compact";
     };

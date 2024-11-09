@@ -96,6 +96,7 @@
     isNormalUser = true;
     description = "Francisco";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.fish;
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -103,6 +104,14 @@
 
   # Install firefox.
   programs.firefox.enable = true;
+
+  # Install fish.
+  programs.fish = {
+    enable = true;
+    shellAliases = {
+      g = "git";
+    };
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
