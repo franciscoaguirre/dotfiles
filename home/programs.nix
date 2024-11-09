@@ -41,6 +41,9 @@
     shellAliases = {
       g = "git";
     };
+    shellAbbrs = {
+      dev = "nix develop -c fish";
+    };
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
     '';
