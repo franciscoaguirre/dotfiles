@@ -74,6 +74,8 @@
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
+  # Makes Steam work.
+  hardware.opengl.driSupport32Bit = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
