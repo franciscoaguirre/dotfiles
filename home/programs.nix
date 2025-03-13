@@ -2,6 +2,10 @@
 
 {
   home.packages = with pkgs; [
+    # Browsers
+    firefox
+    brave
+  
     # Notes
     obsidian
 
@@ -12,6 +16,9 @@
     inkscape
     krita
     blender
+
+    # Music
+    ncspot
 
     # Games
     steam
