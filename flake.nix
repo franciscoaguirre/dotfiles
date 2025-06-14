@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -21,6 +22,10 @@
 
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+              system = "x86_64-linux";
+            };
           }
         ];
       };

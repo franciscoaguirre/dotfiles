@@ -1,9 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, system, ... }:
 
 {
   home.packages = with pkgs; [
     # Browsers
-    firefox
     brave
   
     # Notes
@@ -31,6 +30,11 @@
     fd
     deluge
   ];
+
+  programs.firefox = {
+    enable = true;
+    package = inputs.nixpkgs-unstable.legacyPackages.${system}.firefox;
+  };
 
   programs.bash = {
     enable = true;
