@@ -16,9 +16,6 @@
     krita
     blender
 
-    # Music
-    ncspot
-
     # Games
     steam
 
@@ -29,11 +26,19 @@
     ripgrep
     fd
     deluge
+    vlc
+    ledger-live-desktop
   ];
 
   programs.firefox = {
     enable = true;
     package = inputs.nixpkgs-unstable.legacyPackages.${system}.firefox;
+  };
+
+  # Music.
+  programs.ncspot = {
+    enable = true;
+    package = inputs.nixpkgs-unstable.legacyPackages.${system}.ncspot;
   };
 
   programs.bash = {
