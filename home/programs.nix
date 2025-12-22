@@ -1,9 +1,12 @@
-{ config, pkgs, inputs, system, ... }:
+{ config, pkgs, inputs, system, claude-code-nix, ... }:
 
 {
   home.packages = with pkgs; [
     # Browsers
     brave
+
+    # Code
+    # claude-code-nix.packages.x86_64-linux.claude-code
   
     # Notes
     obsidian
@@ -18,6 +21,7 @@
 
     # Games
     steam
+    steam-run
 
     # Misc
     btop
@@ -29,6 +33,15 @@
     vlc
     ledger-live-desktop
   ];
+
+  # home.sessionVariables = {
+  #   ANTHROPIC_API_KEY = builtins.readFile /home/francisco/.secrets/anthropic-api-key;
+  # };
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
 
   programs.firefox = {
     enable = true;
@@ -62,6 +75,9 @@
     };
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
+      if test -f /run/agenix/github-token
+        set -x GITHUB_TOKEN (cat /run/agenix/github-token)
+      end
     '';
   };
 

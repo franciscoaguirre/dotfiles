@@ -25,6 +25,13 @@
 
   nix.settings.auto-optimise-store = true;
 
+  age.secrets = {
+    github-token = {
+      file = ./secrets/github-token.age;
+      owner = "francisco";
+    };
+  };
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
