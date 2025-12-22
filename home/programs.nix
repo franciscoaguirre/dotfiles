@@ -75,8 +75,8 @@
     };
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
-      if test -f /run/agenix/github-token
-        set -x GITHUB_TOKEN (cat /run/agenix/github-token)
+      if test -f ~/.secrets/github-token
+        set -x GITHUB_TOKEN (cat ~/.secrets/github-token)
       end
     '';
   };
