@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, system, claude-code-nix, ... }:
+{ config, pkgs, inputs, system, ... }:
 
 {
   home.packages = with pkgs; [
@@ -6,7 +6,7 @@
     brave
 
     # Code
-    # claude-code-nix.packages.x86_64-linux.claude-code
+    inputs.claude-code.packages.x86_64-linux.claude-code
   
     # Notes
     obsidian
