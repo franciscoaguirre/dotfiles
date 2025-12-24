@@ -38,6 +38,32 @@
   # Set your time zone.
   time.timeZone = "America/Montevideo";
 
+  fonts.packages = with pkgs; [
+    carlito
+    dejavu_fonts
+    ipafont
+    kochi-substitute
+    source-code-pro
+    ttf_bitstream_vera
+    mplus-outline-fonts.osdnRelease
+  ];
+
+  fonts.fontconfig.enable = true;
+  fonts.fontconfig.defaultFonts = {
+    monospace = [
+      "DejaVu Sans Mono"
+      "IPAGothic"
+    ];
+    sansSerif = [
+      "DejaVu Sans"
+      "IPAGothic"
+    ];
+    serif = [
+      "DejaVu Serif"
+      "IPAPMincho"
+    ];
+  };
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -51,6 +77,14 @@
     LC_PAPER = "es_UY.UTF-8";
     LC_TELEPHONE = "es_UY.UTF-8";
     LC_TIME = "es_UY.UTF-8";
+  };
+
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-mozc
+      fcitx5-gtk
+    ];
   };
 
   # Enable the X11 windowing system.
@@ -72,8 +106,14 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  services.udev.extraRules = ''
+    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", GROUP="input"
+  '';
+
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
+  # Enable ZSA keyboard flashing.
+  hardware.keyboard.zsa.enable = true;
   # Makes Steam work.
   hardware.opengl.driSupport32Bit = true;
   security.rtkit.enable = true;
@@ -97,7 +137,7 @@
   users.users.francisco = {
     isNormalUser = true;
     description = "Francisco";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "input" ];
     shell = pkgs.bash;
     packages = with pkgs; [
     #  thunderbird
@@ -117,6 +157,7 @@
     git
     alacritty
     zellij
+    keymapp
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
