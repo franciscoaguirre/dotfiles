@@ -98,11 +98,13 @@
 
   programs.helix = {
     enable = true;
+    package = inputs.nixpkgs-unstable.legacyPackages.${system}.helix;
     settings = {
       theme = "bogster";
       editor.line-number = "relative";
       keys.normal = {
         esc = ":w";
+        "C-y" = ":sh zellij run -n Yazi -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- bash ~/.config/helix/yazi-picker.sh open %{buffer_name}";
       };
     };
   };

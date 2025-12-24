@@ -154,6 +154,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     helix
+    yazi
     git
     alacritty
     zellij
