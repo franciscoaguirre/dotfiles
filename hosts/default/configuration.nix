@@ -159,6 +159,7 @@
     alacritty
     zellij
     keymapp
+    gnomeExtensions.kimpanel
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
