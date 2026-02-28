@@ -1,15 +1,15 @@
-{ config, pkgs, inputs, system, ... }:
+{ config, pkgs, lib, inputs, system, ... }:
 
 {
   # Fcitx5 configuration for Japanese input
   xdg.configFile."fcitx5/profile".text = ''
     [Groups/0]
     Name=Default
-    Default Layout=us
+    Default Layout=us-altgr-intl
     DefaultIM=mozc
 
     [Groups/0/Items/0]
-    Name=keyboard-us
+    Name=keyboard-us-altgr-intl
     Layout=
 
     [Groups/0/Items/1]
@@ -108,8 +108,6 @@
 
   programs.zellij = {
     enable = true;
-    enableBashIntegration = true;
-    enableFishIntegration = true;
     settings = {
       default_layout = "compact";
     };
@@ -153,6 +151,12 @@
       re = "rebase -i";
       continue = "rebase --continue";
       abort = "rebase --abort";
+    };
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/input-sources" = {
+      sources = [ (lib.hm.gvariant.mkTuple [ "xkb" "us+altgr-intl" ]) ];
     };
   };
 }
