@@ -1,24 +1,27 @@
-{ config, pkgs, lib, inputs, system, ... }:
+{ config, pkgs, pkgs-unstable, lib, inputs, system, ... }:
 
 {
   # Fcitx5 configuration for Japanese input
-  xdg.configFile."fcitx5/profile".text = ''
-    [Groups/0]
-    Name=Default
-    Default Layout=us-altgr-intl
-    DefaultIM=mozc
+  xdg.configFile."fcitx5/profile" = {
+    force = true;
+    text = ''
+      [Groups/0]
+      Name=Default
+      Default Layout=us-altgr-intl
+      DefaultIM=mozc
 
-    [Groups/0/Items/0]
-    Name=keyboard-us-altgr-intl
-    Layout=
+      [Groups/0/Items/0]
+      Name=keyboard-us-altgr-intl
+      Layout=
 
-    [Groups/0/Items/1]
-    Name=mozc
-    Layout=
+      [Groups/0/Items/1]
+      Name=mozc
+      Layout=
 
-    [GroupOrder]
-    0=Default
-  '';
+      [GroupOrder]
+      0=Default
+    '';
+  };
 
   home.packages = with pkgs; [
     # Browsers
@@ -26,7 +29,8 @@
 
     # Code
     inputs.claude-code.packages.x86_64-linux.claude-code
-  
+    pkgs-unstable.android-studio
+
     # Notes
     obsidian
 
@@ -64,13 +68,16 @@
 
   programs.firefox = {
     enable = true;
-    package = inputs.nixpkgs-unstable.legacyPackages.${system}.firefox;
+    package = pkgs-unstable.firefox;
   };
 
   # Music.
   programs.ncspot = {
     enable = true;
-    package = inputs.nixpkgs-unstable.legacyPackages.${system}.ncspot;
+    package = pkgs-unstable.ncspot;
+    settings = {
+      backend = "pulseaudio";
+    };
   };
 
   programs.bash = {
@@ -115,7 +122,7 @@
 
   programs.helix = {
     enable = true;
-    package = inputs.nixpkgs-unstable.legacyPackages.${system}.helix;
+    package = pkgs-unstable.helix;
     settings = {
       theme = "bogster";
       editor.line-number = "relative";

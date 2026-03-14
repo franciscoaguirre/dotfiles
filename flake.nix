@@ -9,10 +9,17 @@
     claude-code.url = "github:sadjow/claude-code-nix";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, claude-code, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, claude-code, nixpkgs-unstable, ... }:
+    let
+      system = "x86_64-linux";
+      pkgs-unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+    in {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         modules = [
           ./hosts/default/configuration.nix
           home-manager.nixosModules.home-manager
@@ -22,10 +29,8 @@
             home-manager.backupFileExtension = "backup";
             home-manager.users.francisco = import ./hosts/default/home.nix;
 
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
             home-manager.extraSpecialArgs = {
-              inherit inputs;
+              inherit inputs pkgs-unstable;
               system = "x86_64-linux";
             };
           }
