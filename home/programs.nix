@@ -26,6 +26,7 @@
   home.packages = with pkgs; [
     # Browsers
     brave
+    chromium
 
     # Code
     inputs.claude-code.packages.x86_64-linux.claude-code
