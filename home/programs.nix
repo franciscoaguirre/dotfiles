@@ -29,9 +29,9 @@
     chromium
 
     # Code
-    inputs.claude-code.packages.x86_64-linux.claude-code
     pkgs-unstable.android-studio
     podman
+    pkgs-unstable.railway
 
     # Notes
     obsidian

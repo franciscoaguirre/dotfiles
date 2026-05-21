@@ -6,10 +6,9 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    claude-code.url = "github:sadjow/claude-code-nix";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, claude-code, nixpkgs-unstable, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, nixpkgs-unstable, ... }:
     let
       system = "x86_64-linux";
       pkgs-unstable = import nixpkgs-unstable {
