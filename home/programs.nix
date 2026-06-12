@@ -57,6 +57,7 @@
     deluge
     vlc
     ledger-live-desktop
+    dig
   ];
 
   # home.sessionVariables = {

@@ -93,6 +93,8 @@
     XMODIFIERS = "@im=fcitx";
   };
 
+  environment.localBinInPath = true;
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -143,7 +145,7 @@
   users.users.francisco = {
     isNormalUser = true;
     description = "Francisco";
-    extraGroups = [ "networkmanager" "wheel" "input" ];
+    extraGroups = [ "networkmanager" "wheel" "input" "docker" ];
     shell = pkgs.bash;
     packages = with pkgs; [
     #  thunderbird
@@ -166,6 +168,7 @@
     zellij
     keymapp
     gnomeExtensions.kimpanel
+    ruby
   ];
 
   virtualisation = {
