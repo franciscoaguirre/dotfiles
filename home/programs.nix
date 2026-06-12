@@ -107,6 +107,9 @@
       if test -f ~/.secrets/github-token
         set -x GITHUB_TOKEN (cat ~/.secrets/github-token)
       end
+      if test -d $HOME/.local/bin
+        fish_add_path $HOME/.local/bin
+      end
     '';
   };
 
